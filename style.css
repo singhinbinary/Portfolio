@@ -1,0 +1,113 @@
+/* General Styling & Variables */
+:root {
+    --primary-color: #00FF7F; /* Spring Green */
+    --background-color: #1A1A1A; /* Dark Charcoal */
+    --surface-color: #2C2C2C; /* Lighter Slate */
+    --text-color: #EAEAEA;
+    --secondary-text-color: #A0A0A0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: 'Source Sans Pro', sans-serif; background: var(--background-color); color: var(--text-color); font-size: 16px; line-height: 1.7; }
+.container { max-width: 1100px; margin: auto; padding: 0 2rem; }
+h1, h2, h3 { font-family: 'Roboto Mono', monospace; font-weight: 500; }
+
+/* Particles.js Background */
+#particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+
+/* Main Portfolio Container */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Left Pane (Sticky Header) */
+.left-pane {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2rem;
+    min-width: 450px; /* --- MODIFIED: This prevents the column from shrinking --- */
+}
+.left-pane h1 {
+    font-size: 3.5rem;
+    color: #fff;
+}
+.left-pane h2 {
+    font-size: 1.6rem;
+    color: var(--secondary-text-color);
+    min-height: 80px;
+    white-space: nowrap;
+}
+.left-pane .typing { color: var(--text-color); }
+.left-pane .summary { margin: 2rem 0; }
+.left-pane .socials a { color: var(--secondary-text-color); font-size: 1.5rem; margin-right: 1.5rem; transition: color 0.3s ease; }
+.left-pane .socials a:hover { color: var(--primary-color); }
+
+/* Right Pane (Scrollable Content) */
+.right-pane { padding: 6rem 0; }
+.right-pane section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+.right-pane section:hover {
+    background: rgba(44, 44, 44, 0.3);
+    border-color: #333;
+}
+.right-pane p { max-width: 700px; }
+.btn { display: inline-block; padding: 0.8rem 2.5rem; margin-top: 2rem; background: var(--primary-color); color: #000; border: 2px solid var(--primary-color); border-radius: 5px; text-decoration: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+.btn:hover { background: transparent; color: var(--primary-color); }
+.section-title { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 2rem; }
+
+/* Toolkit Section */
+.toolkit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.tool-category h3 { color: var(--primary-color); margin-bottom: 0.5rem; }
+.tool-category p { color: var(--secondary-text-color); font-size: 0.9rem; }
+
+/* Experience Section */
+.job-block { border-left: 3px solid var(--surface-color); padding-left: 1.5rem; margin-bottom: 2rem; }
+.job-block h3 { font-size: 1.2rem; color: var(--text-color); }
+.job-block .company { color: var(--primary-color); margin-bottom: 1rem; }
+.job-block ul { list-style: none; padding-left: 0; }
+.job-block ul li { margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--secondary-text-color); }
+
+/* Modal Styles */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+.modal-content { position: relative; background-color: var(--surface-color); margin: auto; padding: 2.5rem; border-radius: 15px; width: 90%; max-width: 500px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); animation: fadeIn 0.3s; }
+@keyframes fadeIn { from {opacity: 0; transform: scale(0.9);} to {opacity: 1; transform: scale(1);} }
+.close-btn { color: #aaa; position: absolute; top: 1rem; right: 1.5rem; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
+.close-btn:hover, .close-btn:focus { color: #fff; }
+.modal-content h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
+.modal-content .opportunities { margin-bottom: 1.5rem; color: var(--secondary-text-color); }
+#contactForm .form-row { display: flex; gap: 1rem; margin-bottom: 1rem; }
+#contactForm input, #contactForm textarea { width: 100%; padding: 1rem; background-color: #333; border: 1px solid #444; border-radius: 8px; color: #fff; font-size: 1rem; font-family: 'Source Sans Pro', sans-serif; }
+#contactForm input:focus, #contactForm textarea:focus { outline: none; border-color: var(--primary-color); }
+#contactForm textarea { resize: vertical; }
+.btn-submit { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: auto; padding: 0.8rem 1.5rem; float: right; margin-top: 1rem; background-color: var(--primary-color); color: #000; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+.btn-submit:hover { background-color: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); }
+
+.btn-submit.success { background: #28a745; border-color: #28a745; color: #fff; }
+.btn-submit.error { background: #dc3545; border-color: #dc3545; color: #fff; }
+
+/* Responsive Design */
+@media(max-width: 992px) {
+    .portfolio-container { grid-template-columns: 1fr; }
+    .left-pane { position: static; height: auto; padding: 6rem 0 2rem 0; text-align: center; min-width: 0; } /* Reset min-width */
+    .left-pane .socials { justify-content: center; }
+    .right-pane { padding: 0; }
+    .right-pane section { margin-bottom: 0; border-radius: 0; }
+}
+@media(max-width: 768px) {
+    .left-pane h1 { font-size: 2.8rem; }
+    .left-pane h2 { font-size: 1.5rem; min-height: 60px; white-space: normal; }
+    .toolkit-grid { grid-template-columns: 1fr; }
+}
